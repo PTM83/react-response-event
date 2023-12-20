@@ -1,0 +1,15 @@
+.FormularioCss {
+    display:flex;
+    flex-direction:column;
+    gap:0.5rem;
+}
+
+input {
+    font-size:0.8rem;
+    background-color:white;
+    color:black;
+}
+
+.FormularioCss Button {
+    margin-bottom:0.5rem;
+}
