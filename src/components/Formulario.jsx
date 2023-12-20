@@ -2,7 +2,7 @@ import { useState } from 'react';
 import '../assets/cssComponents/cssFormulario.css'
 import Button from 'react-bootstrap/Button'
 
-const Formulario = ({error, setError, setSuccess}) => {
+const Formulario = ({setError, setSuccess}) => {
 
     const regexParaNombre = /^([a-zA-Z]+)(\s[a-zA-Z]+)*$/;
     const regexParaEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -15,24 +15,32 @@ const Formulario = ({error, setError, setSuccess}) => {
 
     function handleSubmit(event) {
         event.preventDefault()
+        setError("");
+        setSuccess("");
 
-        if (nombre.length === 0 && email.length === 0 && password.length === 0) {
-            return setError('Completa todos los campos')
+        if (nombre.length === 0 || email.length === 0 || password.length === 0 || check.length === 0) {
+            setError('Debe completar todos los campos');
+            return 
         }
 
         if (nombre.length === 0) {
-            return setError("Nombre no puede estar vacio")
+            setError("Nombre no puede estar vacio");
+            return 
         } else if (!regexParaNombre.test(nombre)) {
-            return setError("Nombre no puede contener numeros ni simbolos")
+            setError("Nombre no puede contener numeros ni simbolos");
+            return 
         } else if (email.length === 0) {
-            return setError("Campo email no puede estar vacio")
+            setError("Campo email no puede estar vacio");
+            return 
         } else if (!regexParaEmail.test(email)) {
-            return setError("Mail debe ser user@example.com")
+            setError("Mail debe ser user@example.com");
+            return 
         } else if (password !== check) {
-            return setError("Contraseña invalida")
+            setError("Contraseña invalida");
+            return 
         }
-        setSuccess("Perfecto!");
-        setError("")
+        setSuccess("Registro ingresado exitosamente!!");
+        setNombre("");setEmail("");setPassword("");setCheck("");
     }
 
     return (
@@ -57,3 +65,8 @@ const Formulario = ({error, setError, setSuccess}) => {
 }
 
 export default Formulario
+
+/*
+
+
+*/
