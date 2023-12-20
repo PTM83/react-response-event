@@ -15,7 +15,10 @@ const Formulario = ({setError, setSuccess}) => {
 
     function handleSubmit(event) {
         event.preventDefault()
-        if (nombre.length === 0 && email.length === 0 && password.length === 0 && check.length === 0) {
+        setError("");
+        setSuccess("");
+
+        if (nombre.length === 0 || email.length === 0 || password.length === 0 || check.length === 0) {
             setError('Debe completar todos los campos');
             return 
         }
@@ -36,7 +39,8 @@ const Formulario = ({setError, setSuccess}) => {
             setError("Contraseña invalida");
             return 
         }
-        setSuccess("Perfecto!");
+        setSuccess("Registro ingresado exitosamente!!");
+        setNombre("");setEmail("");setPassword("");setCheck("");
     }
 
     return (
@@ -63,7 +67,6 @@ const Formulario = ({setError, setSuccess}) => {
 export default Formulario
 
 /*
-        setError("");
-        setSuccess("");
+
 
 */
