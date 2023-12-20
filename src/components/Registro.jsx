@@ -14,7 +14,7 @@ const Registro = ({error, setError, success, setSuccess}) => {
         <h1> Crea una cuenta </h1>
         <SocialButton linkedin={linkedin} github={github} facebook={facebook}/>
         <h2> O usa tu email para registrarte </h2>
-        <Formulario error={error} setError={setError} setSuccess={setSuccess} />
+        <Formulario setError={setError} setSuccess={setSuccess} />
         <Alert error={error} success={success}/>
     </div>
     )
